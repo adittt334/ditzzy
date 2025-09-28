@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>The Wedding of Dwi & Mega</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0; padding: 0;
@@ -11,115 +13,135 @@
     }
     body {
       background: linear-gradient(135deg, #4169E1, #87CEEB);
-      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      overflow: hidden;
     }
-    .container {
-      text-align: center;
-      max-width: 700px;
+    .card {
+      background: white;
+      color: #2b2c48;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 500px;
       padding: 20px;
+      text-align: center;
+      position: relative;
     }
-    .slide {
+    .section {
       display: none;
-      animation: fadeIn 1s ease-in-out;
+      animation: fadeIn 0.5s ease-in-out;
     }
-    .slide.active {
+    .section.active {
       display: block;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin: 10px 0;
+    h1, h2 {
+      color: #4169E1;
     }
     p {
-      margin: 5px 0;
+      margin: 8px 0;
       line-height: 1.6;
     }
-    button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 30px;
+    /* bottom bar */
+    .nav-bar {
+      position: absolute;
+      bottom: -75px;
+      left: 50%;
+      transform: translateX(-50%);
       background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 480px;
+      padding: 10px 0;
+    }
+    .nav-bar button {
+      border: none;
+      background: none;
       color: #4169E1;
-      font-size: 1rem;
+      font-size: 0.8rem;
       cursor: pointer;
       transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
     }
-    button:hover {
-      background: #f1f1f1;
+    .nav-bar button i {
+      font-size: 1.2rem;
+    }
+    .nav-bar button:hover {
+      color: #FF6B6B;
       transform: scale(1.05);
     }
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
+      from {opacity: 0; transform: translateY(15px);}
       to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Slide 1 -->
-    <div class="slide active">
+  <div class="card">
+    <!-- Home -->
+    <div class="section active" id="home">
       <h1>The Wedding Of</h1>
       <h2>Dwi & Mega</h2>
-      <button onclick="nextSlide()">Lihat Undangan</button>
     </div>
 
-    <!-- Slide 2 -->
-    <div class="slide">
+    <!-- Mempelai -->
+    <div class="section" id="mempelai">
       <h2>Dwi Fitrianto, A.Md</h2>
       <p>Putra ke Dua dari Bapak (Purn) Sutardi & Ibu Sri Naning, S.Pd, M.M</p>
       <h2>&</h2>
       <h2>Mega Puspitasari</h2>
       <p>Putri ke Tiga dari Bapak Didi Umaidi & Ibu Lis Diulaeha</p>
-      <button onclick="nextSlide()">Lanjut</button>
     </div>
 
-    <!-- Slide 3 -->
-    <div class="slide">
+    <!-- Acara -->
+    <div class="section" id="acara">
       <h1>Save the Date</h1>
       <h2>Akad Nikah</h2>
       <p>Pukul : 09.00 WIB</p>
       <h2>Resepsi</h2>
       <p>Pukul : 13.00 WIB - 16.00 WIB</p>
-      <button onclick="nextSlide()">Lanjut</button>
     </div>
 
-    <!-- Slide 4 -->
-    <div class="slide">
+    <!-- Lokasi -->
+    <div class="section" id="lokasi">
       <h2>Tempat</h2>
       <p>RM.TIARA / Jl. Raya Cibarusah Cikarang</p>
       <p>Kp. Warung Bambu Ds. Sindang Mulya</p>
       <p>Kecamatan Cibarusah, Kabupaten Bekasi</p>
       <p>2025</p>
-      <button onclick="nextSlide()">Lanjut</button>
     </div>
 
-    <!-- Slide 5 -->
-    <div class="slide">
+    <!-- Ucapan -->
+    <div class="section" id="ucapan">
       <h1>Terima Kasih</h1>
       <p>Atas doa & kehadiran Bapak/Ibu/Saudara/i</p>
       <p>With Love,</p>
       <h2>Dwi & Mega</h2>
       <p>• Getting Married •</p>
     </div>
+
+    <!-- Bottom Bar -->
+    <div class="nav-bar">
+      <button onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</button>
+      <button onclick="showSection('mempelai')"><i class="fa-solid fa-user"></i> Mempelai</button>
+      <button onclick="showSection('acara')"><i class="fa-solid fa-calendar-days"></i> Acara</button>
+      <button onclick="showSection('lokasi')"><i class="fa-solid fa-map-marker-alt"></i> Lokasi</button>
+      <button onclick="showSection('ucapan')"><i class="fa-solid fa-heart"></i> Ucapan</button>
+    </div>
   </div>
 
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
-
-    function nextSlide() {
-      slides[currentSlide].classList.remove("active");
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add("active");
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
   </script>
 </body>
