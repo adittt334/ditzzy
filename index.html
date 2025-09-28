@@ -17,17 +17,20 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      overflow: hidden;
     }
     .card {
       background: white;
       color: #2b2c48;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      width: 90%;
-      max-width: 500px;
-      padding: 20px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      width: 95%;
+      max-width: 600px;
+      height: 85vh;  /* lebih besar */
+      padding: 30px 20px 80px; /* ruang buat bar bawah */
       text-align: center;
       position: relative;
+      overflow-y: auto;
     }
     .section {
       display: none;
@@ -36,17 +39,25 @@
     .section.active {
       display: block;
     }
-    h1, h2 {
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #4169E1;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin: 8px 0;
       color: #4169E1;
     }
     p {
       margin: 8px 0;
       line-height: 1.6;
+      font-size: 1rem;
     }
     /* bottom bar */
     .nav-bar {
       position: absolute;
-      bottom: -75px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       background: white;
@@ -54,8 +65,8 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       display: flex;
       justify-content: space-around;
-      width: 100%;
-      max-width: 480px;
+      width: 90%;
+      max-width: 520px;
       padding: 10px 0;
     }
     .nav-bar button {
@@ -72,7 +83,7 @@
       flex: 1;
     }
     .nav-bar button i {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
     .nav-bar button:hover {
       color: #FF6B6B;
@@ -90,6 +101,7 @@
     <div class="section active" id="home">
       <h1>The Wedding Of</h1>
       <h2>Dwi & Mega</h2>
+      <p>Dengan segala kerendahan hati, kami mengundang Anda untuk hadir di hari bahagia kami.</p>
     </div>
 
     <!-- Mempelai -->
