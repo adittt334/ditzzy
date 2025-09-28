@@ -2,309 +2,125 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Wedding of Dwi & Mega</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #8e44ad;
-      --secondary: #2c3e50;
-      --light: #f8f9fa;
-      --accent: #e74c3c;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
-      background: #2c3e50;
-      color: var(--light);
-      text-align: center;
-      overflow: hidden;
     }
-
-    .slider {
-      display: flex;
-      width: 400%;
-      height: 100vh;
-      transition: transform 0.6s ease-in-out;
-    }
-
-    .slide {
-      width: 100vw;
-      height: 100vh;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                  url("https://i.ibb.co/vP9r9Mp/wedding-bg.jpg") no-repeat center/cover;
-    }
-
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin: 15px 0;
-      color: var(--accent);
-    }
-
-    p { margin: 10px 0; line-height: 1.6; }
-
-    .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 700px;
-      backdrop-filter: blur(10px);
-    }
-
-    .section-title {
-      font-weight: 600;
-      font-size: 1.3rem;
-      margin-top: 15px;
-      color: var(--primary);
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #ddd;
-    }
-
-    /* Tombol Musik */
-    #music-btn {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--primary);
+    body {
+      background: linear-gradient(135deg, #4169E1, #87CEEB);
       color: white;
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease;
-      z-index: 999;
+      height: 100vh;
+      overflow: hidden;
     }
-
-    #music-btn:hover { transform: scale(1.1); }
-
-    /* Navigasi bulatan */
-    .dots {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #bbb;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .dot.active { background: var(--accent); }
-
-    /* Countdown */
-    #countdown {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .time-box {
-      background: rgba(255,255,255,0.15);
-      padding: 10px 15px;
-      border-radius: 10px;
+    .container {
       text-align: center;
-      min-width: 60px;
+      max-width: 700px;
+      padding: 20px;
     }
-
-    .time-box h3 {
-      margin: 0;
+    .slide {
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .slide.active {
+      display: block;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    h2 {
       font-size: 1.5rem;
-      color: var(--accent);
+      margin: 10px 0;
     }
-
-    .time-box p {
-      margin: 0;
-      font-size: 0.8rem;
+    p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #4169E1;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #f1f1f1;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
-  <div class="slider" id="slider">
+  <div class="container">
     <!-- Slide 1 -->
-    <div class="slide">
-      <h1>THE WEDDING OF</h1>
+    <div class="slide active">
+      <h1>The Wedding Of</h1>
       <h2>Dwi & Mega</h2>
+      <button onclick="nextSlide()">Lihat Undangan</button>
     </div>
 
     <!-- Slide 2 -->
     <div class="slide">
-      <div class="card">
-        <p><strong>Dwi Fitrianto, A.Md</strong><br>
-        Putra ke Dua dari Bapak (Purn) Sutardi & Ibu Sri Naning, S.Pd, M.M</p>
-
-        <p><strong>Mega Puspitasari</strong><br>
-        Putri ke Tiga dari Bapak Didi Umaidi & Ibu Lis Diulaeha</p>
-      </div>
+      <h2>Dwi Fitrianto, A.Md</h2>
+      <p>Putra ke Dua dari Bapak (Purn) Sutardi & Ibu Sri Naning, S.Pd, M.M</p>
+      <h2>&</h2>
+      <h2>Mega Puspitasari</h2>
+      <p>Putri ke Tiga dari Bapak Didi Umaidi & Ibu Lis Diulaeha</p>
+      <button onclick="nextSlide()">Lanjut</button>
     </div>
 
     <!-- Slide 3 -->
     <div class="slide">
-      <div class="card">
-        <p>With all humility, we invite you to attend our wedding reception which will be held on :</p>
-
-        <h3 class="section-title">Save The Date</h3>
-        <p><strong>AKAD NIKAH :</strong><br>
-        Pukul : 09.00 WIB</p>
-
-        <p><strong>RESEPSI NIKAH :</strong><br>
-        Pukul : 13.00 WIB - 16.00 WIB</p>
-
-        <p><strong>Tempat :</strong><br>
-        RM. TIARA / Jl. Raya Cibarusah Cikarang<br>
-        Kp. Warung Bambu Ds. Sindang Mulya 2025<br>
-        Kecamatan Cibarusah, Kabupaten Bekasi</p>
-
-        <!-- Countdown -->
-        <div id="countdown">
-          <div class="time-box"><h3 id="days">0</h3><p>Hari</p></div>
-          <div class="time-box"><h3 id="hours">0</h3><p>Jam</p></div>
-          <div class="time-box"><h3 id="minutes">0</h3><p>Menit</p></div>
-          <div class="time-box"><h3 id="seconds">0</h3><p>Detik</p></div>
-        </div>
-      </div>
+      <h1>Save the Date</h1>
+      <h2>Akad Nikah</h2>
+      <p>Pukul : 09.00 WIB</p>
+      <h2>Resepsi</h2>
+      <p>Pukul : 13.00 WIB - 16.00 WIB</p>
+      <button onclick="nextSlide()">Lanjut</button>
     </div>
 
     <!-- Slide 4 -->
     <div class="slide">
-      <div class="card">
-        <p>Thank you for your presence and prayers.</p>
-        <p>With love,<br><strong>Dwi & Mega</strong></p>
-        <p>• Getting Married •</p>
-      </div>
-      <footer>
-        <p>© 2025 The Wedding of Dwi & Mega</p>
-      </footer>
+      <h2>Tempat</h2>
+      <p>RM.TIARA / Jl. Raya Cibarusah Cikarang</p>
+      <p>Kp. Warung Bambu Ds. Sindang Mulya</p>
+      <p>Kecamatan Cibarusah, Kabupaten Bekasi</p>
+      <p>2025</p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <h1>Terima Kasih</h1>
+      <p>Atas doa & kehadiran Bapak/Ibu/Saudara/i</p>
+      <p>With Love,</p>
+      <h2>Dwi & Mega</h2>
+      <p>• Getting Married •</p>
     </div>
   </div>
 
-  <!-- Musik -->
-  <audio id="bg-music" loop autoplay>
-    <source src="https://cdn.yupra.my.id" type="audio/mp3">
-  </audio>
-  <div id="music-btn"><i class="fa fa-music"></i></div>
-
-  <!-- Dots navigasi -->
-  <div class="dots" id="dots">
-    <div class="dot active"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-  </div>
-
-  <!-- FontAwesome Icon -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-
   <script>
-    const music = document.getElementById("bg-music");
-    const btn = document.getElementById("music-btn");
-    const slider = document.getElementById("slider");
-    const dots = document.querySelectorAll(".dot");
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
 
-    let isPlaying = true;
-    let currentIndex = 0;
-    const totalSlides = 4;
-
-    // tombol musik
-    btn.addEventListener("click", () => {
-      if (isPlaying) {
-        music.pause();
-        btn.innerHTML = '<i class="fa fa-pause"></i>';
-      } else {
-        music.play();
-        btn.innerHTML = '<i class="fa fa-music"></i>';
-      }
-      isPlaying = !isPlaying;
-    });
-
-    // fungsi update slide
-    function updateSlide(index) {
-      slider.style.transform = `translateX(-${index * 100}vw)`;
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
+    function nextSlide() {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
     }
-
-    // swipe geser
-    let startX = 0;
-    slider.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    slider.addEventListener("touchend", (e) => {
-      let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50 && currentIndex < totalSlides - 1) {
-        currentIndex++;
-      } else if (endX - startX > 50 && currentIndex > 0) {
-        currentIndex--;
-      }
-      updateSlide(currentIndex);
-    });
-
-    // klik dot navigasi
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => {
-        currentIndex = i;
-        updateSlide(currentIndex);
-      });
-    });
-
-    // countdown
-    const eventDate = new Date("2025-10-12T09:00:00").getTime(); // contoh: 12 Oktober 2025 akad nikah jam 09.00 WIB
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "<p>Acara sudah dimulai 🎉</p>";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
-    }
-
-    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
