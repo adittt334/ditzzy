@@ -2,159 +2,135 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>The Wedding of Dwi & Mega</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Undangan Pernikahan Dwi & Mega</title>
   <style>
-    * {
-      margin: 0; padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
     body {
-      background: linear-gradient(135deg, #4169E1, #87CEEB);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #4169E1, #87CEFA);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
+      margin: 0;
     }
+
     .card {
-      background: white;
-      color: #2b2c48;
-      border-radius: 25px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-      width: 95%;
-      max-width: 600px;
-      height: 85vh;  /* lebih besar */
-      padding: 30px 20px 80px; /* ruang buat bar bawah */
+      background: #fff;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      padding: 30px;
       text-align: center;
-      position: relative;
-      overflow-y: auto;
+      animation: fadeIn 1s ease-in-out;
     }
-    .section {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
+
+    .card h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #2b2c48;
     }
-    .section.active {
-      display: block;
+
+    .card h2 {
+      font-size: 22px;
+      margin: 10px 0;
+      color: #444;
     }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      color: #4169E1;
-    }
-    h2 {
-      font-size: 1.4rem;
-      margin: 8px 0;
-      color: #4169E1;
-    }
-    p {
-      margin: 8px 0;
+
+    .card p {
+      font-size: 16px;
       line-height: 1.6;
-      font-size: 1rem;
+      margin: 8px 0;
+      color: #555;
     }
-    /* bottom bar */
-    .nav-bar {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+    .buttons {
       display: flex;
-      justify-content: space-around;
-      width: 90%;
-      max-width: 520px;
-      padding: 10px 0;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
     }
-    .nav-bar button {
+
+    .buttons button {
+      background: #4169E1;
       border: none;
-      background: none;
-      color: #4169E1;
-      font-size: 0.8rem;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
       cursor: pointer;
       transition: 0.3s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      flex: 1;
+      font-size: 14px;
     }
-    .nav-bar button i {
-      font-size: 1.3rem;
+
+    .buttons button:hover {
+      background: #27408B;
     }
-    .nav-bar button:hover {
-      color: #FF6B6B;
-      transform: scale(1.05);
-    }
+
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(15px);}
-      to {opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Slide konten */
+    .slide {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 0.6s ease-in-out;
     }
   </style>
 </head>
 <body>
+
   <div class="card">
-    <!-- Home -->
-    <div class="section active" id="home">
-      <h1>The Wedding Of</h1>
-      <h2>Dwi & Mega</h2>
-      <p>Dengan segala kerendahan hati, kami mengundang Anda untuk hadir di hari bahagia kami.</p>
+    <h1>THEY WEDDING OF</h1>
+    <h2>Dwi Fitrianto, A.Md</h2>
+    <p>Putra ke Dua dari Bapak (Purn) Sutardi & Ibu Sri Naning, S.Pd, M.M</p>
+    <h2>&</h2>
+    <h2>Mega Puspitasari</h2>
+    <p>Putri ke Tiga dari Bapak Didi Umaidi & Ibu Lis Diulaeha</p>
+
+    <!-- Slides -->
+    <div id="slide1" class="slide active">
+      <p>With all humility, we invite you to attend our wedding reception.</p>
     </div>
 
-    <!-- Mempelai -->
-    <div class="section" id="mempelai">
-      <h2>Dwi Fitrianto, A.Md</h2>
-      <p>Putra ke Dua dari Bapak (Purn) Sutardi & Ibu Sri Naning, S.Pd, M.M</p>
-      <h2>&</h2>
-      <h2>Mega Puspitasari</h2>
-      <p>Putri ke Tiga dari Bapak Didi Umaidi & Ibu Lis Diulaeha</p>
+    <div id="slide2" class="slide">
+      <h2>Save The Date</h2>
+      <p><b>AKAD NIKAH</b> : 09.00 WIB</p>
+      <p><b>RESEPSI</b> : 13.00 - 16.00 WIB</p>
+      <p><b>Tempat</b> : RM. TIARA / Jl. Raya Cibarusah Cikarang<br>
+      Kp. Warung Bambu Ds. Sindang Mulya<br>
+      Kecamatan Cibarusah, Kabupaten Bekasi - 2025</p>
     </div>
 
-    <!-- Acara -->
-    <div class="section" id="acara">
-      <h1>Save the Date</h1>
-      <h2>Akad Nikah</h2>
-      <p>Pukul : 09.00 WIB</p>
-      <h2>Resepsi</h2>
-      <p>Pukul : 13.00 WIB - 16.00 WIB</p>
+    <div id="slide3" class="slide">
+      <p>Thank you for your presence and prayers.</p>
+      <p>With love,<br> <b>Dwi & Mega</b></p>
     </div>
 
-    <!-- Lokasi -->
-    <div class="section" id="lokasi">
-      <h2>Tempat</h2>
-      <p>RM.TIARA / Jl. Raya Cibarusah Cikarang</p>
-      <p>Kp. Warung Bambu Ds. Sindang Mulya</p>
-      <p>Kecamatan Cibarusah, Kabupaten Bekasi</p>
-      <p>2025</p>
-    </div>
-
-    <!-- Ucapan -->
-    <div class="section" id="ucapan">
-      <h1>Terima Kasih</h1>
-      <p>Atas doa & kehadiran Bapak/Ibu/Saudara/i</p>
-      <p>With Love,</p>
-      <h2>Dwi & Mega</h2>
-      <p>• Getting Married •</p>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="nav-bar">
-      <button onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</button>
-      <button onclick="showSection('mempelai')"><i class="fa-solid fa-user"></i> Mempelai</button>
-      <button onclick="showSection('acara')"><i class="fa-solid fa-calendar-days"></i> Acara</button>
-      <button onclick="showSection('lokasi')"><i class="fa-solid fa-map-marker-alt"></i> Lokasi</button>
-      <button onclick="showSection('ucapan')"><i class="fa-solid fa-heart"></i> Ucapan</button>
+    <!-- Button navigation -->
+    <div class="buttons">
+      <button onclick="showSlide(1)">Profil</button>
+      <button onclick="showSlide(2)">Acara</button>
+      <button onclick="showSlide(3)">Ucapan</button>
+      <button onclick="window.open('https://maps.google.com?q=RM+Tiara+Cibarusah')">📍 Lokasi</button>
     </div>
   </div>
 
   <script>
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((s, i) => {
+        s.classList.remove('active');
+        if (i === n-1) s.classList.add('active');
+      });
     }
   </script>
+
 </body>
 </html>
